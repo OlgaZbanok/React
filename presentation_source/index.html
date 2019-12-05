@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>ReactJS</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/league.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>React.js</h1>
+				<p>
+					<small>Created by Olga Zbanok</small>
+				</p>
+			</section>
+			<section>
+				<h2>What is React ?</h2>
+				 
+				<p> React is a JavaScript library - one of the most popular ones, with over 100,000 stars on
+						GitHub.</p>
+					
+					<img src="./image/trends.png" alt="trends">
+					<small>React JS Popularity in the last 5 years by Google Trends
+					</small>
+			</section>
+			<section>
+				<h2>What is React ?</h2>
+				<ul>
+				<li> React is an open-source project created by Facebook in 2013</li>
+				<li> React is used to build user interfaces (UI) on the front end.</li>
+				<li> React is not a framework (unlike Angular, which is more opinionated).</li>
+				<li> React is the view layer of an MVC application (Model View Controller)</li>
+			</ul>
+		</section>
+
+			<section>
+				<h2>React Core Concepts</h2>
+				<ul>
+					<li>Virtual DOM</li>
+					<li>JSX</li>
+					<li>Components</li>
+					<li>Props</li>
+					<li>State</li>
+					<li>Lifecycle</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+				<h2>Virtual DOM</h2>
+				<img src="./image/Real-vs-Virtual-DOM.png" alt="Virtual DOM">
+			</section>
+			<section>
+					<h2>Virtual DOM</h2>
+					<img width="60%" height="60%" src="./image/dom.png" alt="Virtual DOM">
+			</section>
+			</section>
+			<section>
+			<section>
+				<h2>JSX</h2>
+				<ul>
+					<li>JSX stands for JavaScript XML</li>
+					<li>JSX allows us to write HTML in React</li>
+					<li>JSX makes it easier to write and add HTML in React</li>
+				</ul>
+				<pre><code>const element = <h1>Hello, world!</h1>;
+ReactDOM.render(element, document.getElementById('root'));</code></pre>
+			</section>
+<section>
+		<p>Important rules about JSX:</p>
+		<ul>
+			<li>one top level element</li>
+			<pre><code>const myelement = (
+<div>
+  <p>Hello,</p>
+  <p>world</p>
+</div>
+);</code></pre>
+			<li>expressions in JSX</li>
+		
+<pre style='width:100%'><code>const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;</code></pre>
+			
+		  <li>elements must be closed</li>
+		</ul>
+</section>
+</section>
+<section>
+	<section>
+	<h2>Components</h2>
+	<img width=" 80%" height="80%"   src="./image/lego.jpg" alt="">
+</section>
+<section>
+		<h2>Functional Component</h2>
+		<table>
+			
+			<tbody>
+				<tr>
+					<td width="30%">as JS function</td>
+					<td><pre><code>function Example() => {
+return (<h1>I'm a functional component!</h1>);
+}</code></pre></td>
+				</tr>
+				<tr>
+						<td>as ES6 arrow function</td>
+						<td><pre><code>function Example() => {
+return (<h1>I'm a functional component!</h1>);
+}</code></pre></td>
+				</tr>
+			</tbody>
+		</table>
+		<ul>
+			<li>is a JavaScript / ES6 function</li>
+			<li>must return a React element</li>
+			<li>take props as parameter if necessary</li>
+		</ul>
+		<p><small>React introduced <a href="https://reactjs.org/docs/hooks-intro.html">React Hooks</a> in version 16.8, which now allows to use state & other features in functional components.</small></p>
+</section>
+<section>
+		<h2>Class Component</h2>
+		<pre><code>import React, { Component } from 'React';
+
+class Example extends Component {
+	render() {
+		return (
+			<div>This is an example component.</div>
+		);
+	}
+}
+export default Example;</code></pre>
+<ul>
+	<li>is an ES6 class</li>
+	<li>can accept props (in the constructor) if needed</li>
+	<li>can maintain its own data with state</li>
+	<li>must have a render( ) method which returns a React element (JSX), or null</li>
+</ul>
+</section>
+</section>
+<section>
+	<h2>Props</h2>
+	<ul>
+		<li>Props stand for properties and is a special keyword in React</li>
+		<li>Props are being passed to components like function arguments</li>
+		<li>Props can only be passed to components in one-way (parent to child)</li>
+		<li>Props data is immutable (read-only)</li>
+	</ul>
+</section>
+<section>
+	<h2>State</h2>
+	<ul>
+		<li>The state object is initialized in the constructor
+		</li>
+		<pre><code>class MyClass extends React.Component 
+{ 
+	constructor(props) 
+	{ 
+	super(props); 
+	this.state = { attribute : "value" }; 
+	} 
+}</code></pre>
+<li>State should never be updated explicitly, use the <em>this.setState()</em> method</li>
+<pre><code>this.setState({attribute: "new-value"});</code></pre>
+<li>State updates are independent</li>
+	</ul>
+</section>
+<section>
+	<h2>LIFECYCLE</h2>
+	<img src="./image/lifecycle.jpg" alt="">
+</section>
+<section>
+	<h2>Pros of ReactJS</h2>
+	<ol>
+		<li>Virtual DOM in ReactJS makes user experience better and developer’s work faster</li>
+		<li>Permission to reuse React components significantly saves time</li>
+		<li>One-direction data flow in ReactJS provides a stable code</li>
+		<li>An open-source Facebook library: constantly developing and open to the community</li>
+		<li>Wide React toolset</li>
+	</ol>
+</section>
+<section>
+		<h2>Cons of ReactJS</h2>
+		<ol>
+			 <li>High pace of development</li>
+			 <li>Poor documentation</li>
+			 <li>‘HTML in my JavaScript!’ – JSX as a barrier</li>
+			 <li>Additional SEO hassle</li>
+		</ol>
+	</section>
+	<section>
+		<h2>Thank you!</h2>
+	</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
